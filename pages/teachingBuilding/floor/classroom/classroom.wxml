@@ -1,0 +1,43 @@
+<import src="/templates/template-tip/template-tip" />
+<view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-label">日期：</view>
+    <view class="weui-input weui-cell__bd">{{date}}</view>
+  </view>
+  <view class="section section_gap">
+    <scroll-view class="scroll-view_H" scroll-x="true">
+
+      <!--table开始的地方-->
+      <block wx:for="{{tableNum}}" wx:for-item="tableItem" wx:for-index="tableIdx">
+        <view class="table" class="scroll-view-item_H">
+          <view class="flex-wrp">
+            <view class="td flex-item time">
+              <view class="tdTitleColor">时间\座位号</view>
+              <block wx:for="{{timeId}}" wx:for-index="timeIdx">
+                <view wx:if="{{timeIdx%2==1}}" class="tdColorLight" bindtap="timeSelected" data-timeIdx="{{timeIdx}}">{{item}}</view>
+                <view wx:else class="tdColor" bindtap="timeSelected" data-timeIdx="{{timeIdx}}">{{item}}</view>
+              </block>
+            </view>
+            <block wx:for="{{seatId}}" wx:for-index="seatIdx">
+              <view class="td flex-item tdTitleColor">{{tableItem+'-'+item}}
+                <block wx:for="{{temp[floorIdx][roomIdx][tableIdx][seatIdx]}}" wx:for-item="YN" wx:for-index="timePeiodIdx">
+                  <view wx:if="{{timePeiodIdx%2==1}}" class="tdColorLight">
+                    <image data-tableNum="{{tableIdx}}" data-seatIdx="{{seatIdx}}" data-timePeiodIdx="{{timePeiodIdx}}" src="/images/icons/{{YN}}.png" style="width:18px;height:18px;" bindtap="{{YN}}"></image>
+                  </view>
+                  <view wx:else class="tdColor">
+                    <image data-tableNum="{{tableIdx}}" data-seatIdx="{{seatIdx}}" data-timePeiodIdx="{{timePeiodIdx}}" src="/images/icons/{{YN}}.png" style="width:18px;height:18px;" bindtap="{{YN}}"></image>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+
+      <!--table结束的地方-->
+    </scroll-view>
+  </view>
+
+  <!--可滚动视图区域 end-->
+  <template is="tip"></template>
+</view>

@@ -1,0 +1,37 @@
+/**app.wxss**/
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+} 
+
+@import 'style/weui.wxss';
+
+.box{
+    padding:35% 5%;
+}
+.sign{
+    display:inline-block;
+    padding-left:7%;
+}
+progress{
+    float:right;
+    width:80%;
+}
+.classroom{
+    width:80%;
+    margin:35% auto;
+}
+/*.tips{
+    float:right;
+    margin-right:15%;
+}*/
+page{
+    background-color: #F8F8F8;
+    font-size: 16px;
+    font-family: -apple-system-font,Helvetica Neue,Helvetica,sans-serif;
+}

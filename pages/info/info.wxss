@@ -1,0 +1,58 @@
+.logo {
+  width: 458rpx;
+  height: 110rpx;
+  margin: 0 auto 60px;
+  display: block;
+  padding-top: 30px;
+}
+
+.name{
+  padding:10px 15px;
+}
+.box{
+  padding:5%;
+}
+.header {
+  border-bottom: 4px solid #fff;
+  background:#fff;
+
+}
+
+.avatar {
+  width: 200rpx;
+  height: 200rpx;
+  margin-left: 26rpx;
+  margin-top: -100rpx;
+}
+
+
+page{
+  color:#333;
+}
+.weui-cells {
+  margin-top: 0;
+  opacity: 0;
+  -webkit-transform: translateY(-50%);
+  transform: translateY(-50%);
+  -webkit-transition: 0.3s;
+  transition: 0.3s;
+}
+
+
+.weui-cells{
+  margin-top:200rpx;
+}
+
+.weui-cells:before, .weui-cells:after {
+  display: none;
+}
+
+.weui-cells_show {
+  opacity: 1;
+  -webkit-transform: translateY(0);
+  transform: translateY(0);
+}
+
+.weui-cell:before {
+  right: 15px;
+}

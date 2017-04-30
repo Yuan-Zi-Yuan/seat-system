@@ -1,0 +1,43 @@
+<import src="/templates/template-tip/template-tip" />
+<view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-label">日期：</view>
+    <view class="weui-input weui-cell__bd">{{date}}</view>
+  </view>
+  <view class="section section_gap">
+    <scroll-view class="scroll-view_H" scroll-x="true">
+
+      <!--table start-->
+      <block wx:for="{{tableNum}}" wx:for-item="tableItem" wx:for-index="tableIdx">
+        <view class="table" class="scroll-view-item_H">
+          <view class="flex-wrp">
+            <view class="td flex-item time">
+              <view class="tdTitleColor">时间\座位号</view>
+              <block wx:for="{{timeId}}" wx:for-index="timeIdx">
+                <view wx:if="{{timeIdx%2==1}}" class="tdColorLight">{{item}}</view>
+                <view wx:else class="tdColor">{{item}}</view>
+              </block>
+            </view>
+            <block wx:for="{{seatId}}" wx:for-index="seatIdx">
+              <view class="td flex-item tdTitleColor">{{tableItem+'-'+item}}
+                <block wx:for="{{library[floorIdx][0][tableIdx][seatIdx]}}" wx:for-item="YN" wx:for-index="timePeiodIdx">
+                  <view wx:if="{{timePeiodIdx%2==1}}" class="tdColorLight">
+                    <image data-tableNum="{{tableIdx}}" data-seatIdx="{{seatIdx}}" data-timePeriodIdx="{{timePeiodIdx}}" src="../../../images/icons/{{YN}}.png" bindtap="{{YN}}"></image>
+                  </view>
+                  <view wx:else class="tdColor">
+                    <image data-tableNum="{{tableIdx}}" data-seatIdx="{{seatIdx}}" data-timePeriodIdx="{{timePeiodIdx}}" src="../../../images/icons/{{YN}}.png" bindtap="{{YN}}"></image>
+                  </view>
+                </block>
+              </view>
+            </block>
+          </view>
+        </view>
+      </block>
+
+      <!--table end-->
+    </scroll-view>
+  </view>
+
+  <!--可滚动视图区域 end-->
+  <template is="tip"></template>
+</view>

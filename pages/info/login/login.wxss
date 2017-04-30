@@ -1,0 +1,17 @@
+.logo {
+  width: 458rpx;
+  height: 110rpx;
+  margin: 30px auto 50px;
+  display: block;
+}
+
+.violateInfo {
+  width: 75%;
+  margin: 0 auto;
+}
+
+.weui-btn2 {
+  margin-top: 30px;
+  width: 100px;
+}
+

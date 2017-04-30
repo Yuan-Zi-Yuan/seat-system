@@ -1,0 +1,16 @@
+<!--<block wx:for-items="{{pages}}" wx:key="{{item.id}}">
+  <view class="weui-cells weui-cells_show">-->
+    <block wx:for-items="{{pages}}" wx:for-item="page" wx:key="*item">
+      <navigator url="classroom/classroom?buildingIdx={{buildingIdx}}&floorIdx={{floorIdx}}&roomIdx={{index}}" class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">{{page}}</view>
+        <image style="width:30px;height:30px;" src="/images/icons/{{emoji[index]}}.png"></image>
+        <view class="weui-cell__ft_in-access"></view>
+      </navigator>
+    </block>
+    <navigator bindtap="disabledRoom" class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">{{flIdx}}05</view>
+      <image style="width:30px;height:30px;" src="/images/icons/classroomN.png"></image>
+      <view class="weui-cell__ft_in-access"></view>
+    </navigator>
+  <!--</view>
+</block>-->

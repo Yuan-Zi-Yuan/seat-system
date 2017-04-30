@@ -1,0 +1,46 @@
+
+<!--<view class="weui-cell weui-cell_input">
+  <view class="weui-label">请输入密码：</view>
+  <input password type="text" placeholder="密码" bindinput="passwordInput" auto-focus/>
+</view>-->
+<view class="frame" wx:if="{{frame===true}}">
+  <view class=" background-color">请输入密码：</view>
+  <input password type="text" placeholder="密码" bindinput="passwordInput" auto-focus/>
+  <button class="btn" bindtap="btn">确定</button>
+  <button class="btn">取消</button>
+</view>
+<view class="create" wx:if="{{frame===false}}">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">账号</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入账号" bindinput="usernameInputCreate"/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">邮箱</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="请输入邮箱" bindinput="emailInputCreate"/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">密码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input password class="weui-input" placeholder="请输入密码" bindinput="passwordInputCreate"/>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">密码</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input password class="weui-input" placeholder="请再次输入密码" bindinput="passwordInputAgainCreate"/>
+    </view>
+  </view>
+  <button class="confirm" bindtap="confirm">保存</button>
+</view>

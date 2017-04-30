@@ -1,0 +1,7 @@
+.status-box{
+    width:80%;
+    margin:10% auto;
+}
+.button-sp-area{
+    margin-top:30px;
+}

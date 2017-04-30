@@ -1,0 +1,10 @@
+<template name="tip">
+  <view class="tip">
+    <image src="/images/icons/Y.png"></image>
+    <span class="tipText">无人</span> 
+    <image src="/images/icons/N.png"></image>
+    <span class="tipText">有人</span> 
+    <image src="/images/icons/S.png"></image>
+    <span class="tipText">不可用</span> 
+  </view>
+</template>

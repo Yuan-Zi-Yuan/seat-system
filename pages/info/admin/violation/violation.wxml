@@ -1,0 +1,52 @@
+<import src="/templates/template-tip/template-tip" />
+<view class="infoBox">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">教学楼</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChange" range="{{array}}">
+        <view class="weui-input">{{array[index]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">楼层</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChangeLou" range="{{arrayLou}}">
+        <view class="weui-input">{{arrayLou[indexLou]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">教室</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChangeRoom" range="{{arrayRoom}}">
+        <view class="weui-input">{{arrayRoom[indexRoom]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view wx:if="{{remind===false}}">
+    <view class="flexWrap">
+      <block wx:for="{{list[index][indexLou][indexRoom]}}" wx:for-index="tableIdx">
+        <view class="unit">
+          <block wx:for="{{item}}" wx:for-item="YN" wx:for-index="seatNum">
+            <image bindtap="{{YN[time]}}" data-tableIdx="{{tableIdx}}" data-seatNum="{{seatNum}}" src="../../../../images/icons/{{YN[time]}}.png"></image>
+            <view class="weui-cell__bd" id="{{tableIdx}}">{{(tableIdx+1)+'-'+(seatNum+1)}}
+            </view>
+          </block>
+        </view>
+      </block>
+    </view>
+    <template is="tip"></template>
+  </view>
+  <view class="remind" wx:else="{{remind===true}}">
+    <image src="/images/icons/doraemon.png"></image>
+    <br></br>
+    <text>该教室不存在，换一间教室吧~</text>
+  </view>
+</view>
