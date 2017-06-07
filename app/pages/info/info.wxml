@@ -1,0 +1,74 @@
+<view class="header">
+  <image class="logo" src="/images/icons/logo.png"></image>
+</view>
+<image class="avatar" src="/images/avatars/3.png"></image>
+<view class="box" wx:if="{{infoType==='student'}}">
+  <view>
+    用户名：{{username}}
+  </view>
+  <view>
+    赴约次数：{{successTimes}}
+  </view>
+  <view>
+    违约次数：{{failTimes}}
+  </view>
+  <view>
+    <text>最近的一次预约：</text>
+    <view wx:if="{{recentBook}}">
+      <view>
+        日期：{{recentBook.bookDate}}
+      </view>
+      <view>
+        时间：{{recentBook.bookTime}}
+      </view>
+      <view>
+        地点：{{recentBook.bookPlace}}
+      </view>
+    </view>
+    <text wx:else>无</text>
+  </view>
+  <button bindtap="temporary">暂时离开</button>
+  <button bindtap="leave">完全离开</button>
+</view>
+<view class="box" wx:elif="{{infoType==='teacher'}}">
+  <view>
+    用户名：{{username}}
+  </view>
+  <view>
+    赴约次数：{{successTimes}}
+  </view>
+  <view>
+    违约次数：{{failTimes}}
+  </view>
+  <text>
+    最近的一次预约：
+  </text>
+  <view wx:if="{{recentBook}}">
+    <view>
+      日期：{{recentBook.bookDate}}
+    </view>
+    <view>
+      时间：{{recentBook.bookTime}}
+    </view>
+    <view>
+      地点：{{recentBook.bookPlace}}
+    </view>
+  </view>
+  <text wx:else>无</text>
+</view>
+<view class="box" wx:else="{{infoType==='admin'}}">
+  <view class="name">
+    用户名：{{username}}
+  </view>
+
+  <!--<view class="box">-->
+  <view class=" weui-cells_show">
+    <block wx:for-items="{{pages}}" wx:for-item="page" wx:key="*item">
+      <navigator url="admin/{{pagesUrl[index]}}/{{pagesUrl[index]}}" class="weui-cell weui-cell_access">
+        <view class="weui-cell__bd">{{page}}</view>
+        <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+      </navigator>
+    </block>
+  </view>
+</view>
+<button bindtap="exit">切换账号</button>

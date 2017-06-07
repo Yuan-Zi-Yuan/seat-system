@@ -1,0 +1,15 @@
+<swiper indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+<block wx:for="{{newsTop}}">
+  <swiper-item>
+  <navigator url="newsText/newsText?newsText={{index}}"><image src="{{item.src}}" bindtap="{{item.id}}" class="slide-image" /></navigator>
+  </swiper-item>
+  </block>
+</swiper>
+<view class="weui-cells weui-cells_show newsList">
+  <block wx:for-items="{{newsList}}"  wx:key="*item">
+    <navigator url="newsList/newsList?newsList={{index}}" class="weui-cell weui-cell_access">
+      <view class="weui-cell__bd">{{item}}</view>
+      <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+    </navigator>
+  </block>
+</view>

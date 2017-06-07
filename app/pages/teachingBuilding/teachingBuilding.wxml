@@ -1,0 +1,41 @@
+<block wx:for-items="{{listForm}}" wx:key="{{item.id}}" wx:for-index="buildingIdx">
+  <view class="kind-list__item">
+    <view id="{{item.id}}" class="weui-flex kind-list__item-hd {{item.open ? 'kind-list__item-hd_show' : ''}}" bindtap="kindToggle">
+      <view class="weui-flex__item">{{item.name}}</view>
+      <image class="kind-list__img " src="/images/icons/{{emoji[buildingIdx]}}.png"></image>
+    </view>
+    <view class="kind-list__item-bd {{item.open ? 'kind-list__item-bd_show' : ''}}">
+      <view class="weui-cells {{item.open ? 'weui-cells_show' : ''}}">
+        <block wx:for-items="{{item.pages}}" wx:for-item="page" wx:key="*item">
+        <view wx:if="{{buildingIdx==0}}"> 
+        <navigator  url="floor/classroom/classroom?buildingIdx={{buildingIdx}}&floorIdx={{index}}&roomIdx=0" class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">{{page}}</view>
+            <image style="width:30px;height:30px;" src="/images/icons/2.png"></image>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+          </view>
+          <view wx:else>
+          <navigator url="floor/floor?buildingIdx={{buildingIdx}}&floorIdx={{index}}" class="weui-cell weui-cell_access">
+            <view class="weui-cell__bd">{{page}}</view>
+            <image style="width:30px;height:30px;" src="/images/icons/2.png"></image>
+            <view class="weui-cell__ft weui-cell__ft_in-access"></view>
+          </navigator>
+          </view>
+        </block>
+      </view>
+    </view>
+  </view>
+</block>
+<view class="tip">
+    <image src="/images/icons/0.png"></image>
+    <span class="tipText">很多空座</span> 
+    <image src="/images/icons/1.png"></image>
+    <span class="tipText">较多空座</span> 
+    <image src="/images/icons/2.png"></image>
+    <span class="tipText">较少空座</span> 
+    <image src="/images/icons/3.png"></image>
+    <span class="tipText">很少空座</span> 
+  </view>
+  <view wx:for="{{libraryTest}}">
+  <text>{{item.type}}</text>
+  </view>

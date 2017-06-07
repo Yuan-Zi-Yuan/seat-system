@@ -1,0 +1,12 @@
+text {
+  text-indent: 54rpx;
+  display: block;
+  font-size: 28rpx;
+  margin-bottom: 10rpx;
+}
+.newsImg{
+  width:100%;
+}
+.box{
+  padding:0 40rpx
+}

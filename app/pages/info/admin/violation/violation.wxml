@@ -1,0 +1,77 @@
+<import src="/templates/template-tip/template-tip" />
+<view class="infoBox">
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">教学楼</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChange" range="{{array}}">
+        <view class="weui-input">{{array[index]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">楼层</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChangeLou" range="{{arrayLou}}">
+        <view class="weui-input">{{arrayLou[indexLou]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view class="weui-label">教室</view>
+    </view>
+    <view class="weui-cell__bd">
+      <picker value="{{index}}" bindchange="bindPickerChangeRoom" range="{{arrayRoom}}">
+        <view class="weui-input">{{arrayRoom[indexRoom]}}</view>
+      </picker>
+    </view>
+  </view>
+  <view wx:if="{{remind===false}}">
+    <view class="flexWrap">
+      <view class="unit">
+        <block wx:for="{{roomData}}" wx:for-index="seatIdx" wx:if="{{seatIdx<6}}">
+          <image bindtap="{{item['times'][0][time][0]['type']}}" data-seatIdx="{{seatIdx}}" data-tableIdx="1" data-seatNum="{{seatIdx}}" src="../../../../images/icons/{{item['times'][0][time][0]['type']}}.png"></image>
+          <view class="weui-cell__bd" id="{{tableIdx}}">{{'1-'+(seatIdx+1)}}
+          </view>
+        </block>
+      </view>
+      <view class="unit">
+        <block wx:for="{{roomData}}" wx:for-index="seatIdx" wx:if="{{seatIdx>=6&&seatIdx<12}}">
+          <image bindtap="{{item['times'][0][time][0]['type']}}" data-seatIdx="{{seatIdx}}" data-tableIdx="2" data-seatNum="{{seatIdx-5}}" src="../../../../images/icons/{{item['times'][0][time][0]['type']}}.png"></image>
+          <view class="weui-cell__bd" id="{{tableIdx}}">{{'2-'+(seatIdx-5)}}
+          </view>
+        </block>
+      </view>
+      <view class="unit">
+        <block wx:for="{{roomData}}" wx:for-index="seatIdx" wx:if="{{seatIdx>=12&&seatIdx<18}}">
+          <image bindtap="{{item['times'][0][time][0]['type']}}" data-seatIdx="{{seatIdx}}" data-tableIdx="3" data-seatNum="{{seatIdx-11}}" src="../../../../images/icons/{{item['times'][0][time][0]['type']}}.png"></image>
+          <view class="weui-cell__bd" id="{{tableIdx}}">{{'3-'+(seatIdx-11)}}
+          </view>
+        </block>
+      </view>
+      <view class="unit">
+        <block wx:for="{{roomData}}" wx:for-index="seatIdx" wx:if="{{seatIdx>=18&&seatIdx<24}}">
+          <image bindtap="{{item['times'][0][time][0]['type']}}" data-seatIdx="{{seatIdx}}" data-tableIdx="4" data-seatNum="{{seatIdx-17}}" src="../../../../images/icons/{{item['times'][0][time][0]['type']}}.png"></image>
+          <view class="weui-cell__bd" id="{{tableIdx}}">{{'4-'+(seatIdx-17)}}
+          </view>
+        </block>
+      </view>
+      <view class="unit">
+        <block wx:for="{{roomData}}" wx:for-index="seatIdx" wx:if="{{seatIdx>=24&&seatIdx<30}}">
+          <image bindtap="{{item['times'][0][time][0]['type']}}" data-seatIdx="{{seatIdx}}" data-tableIdx="5" data-seatNum="{{seatIdx-23}}" src="../../../../images/icons/{{item['times'][0][time][0]['type']}}.png"></image>
+          <view class="weui-cell__bd" id="{{tableIdx}}">{{'5-'+(seatIdx-23)}}
+          </view>
+        </block>
+      </view>
+    </view>
+    <template is="tip"></template>
+  </view>
+  <view class="remind" wx:else="{{remind===true}}">
+    <image src="/images/icons/doraemon.png"></image>
+    <text>该教室不存在，换一间教室吧~</text>
+  </view>
+</view>

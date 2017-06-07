@@ -1,0 +1,18 @@
+<view>
+  <image class="logo" src="/images/icons/logo.png"></image>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-cell__hd">
+      <view id="users" class="weui-label">用户名</view>
+    </view>
+    <view class="weui-cell__bd">
+      <input class="weui-input" placeholder="学号、教工号" bindinput="usernameInput" />
+    </view>
+  </view>
+  <view class="weui-cell weui-cell_input">
+    <view class="weui-label">密码</view>
+    <input password type="text" placeholder="密码" bindinput="passwordInput" />
+  </view>
+  <view class="button-sp-area">
+    <button class="weui-btn2 login" bindtap="login" type="primary" plain="true">登录</button>
+  </view>
+</view>
